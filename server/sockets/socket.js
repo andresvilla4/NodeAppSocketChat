@@ -31,4 +31,10 @@ io.on('connection', (client) => {
         client.broadcast.emit('crearMensaje', crearMensaje('Administrador', 'Alguien abandonó el chat'));
         client.broadcast.emit('listaPersona', usuarios.getPersonas());
     });
+
+    //Mensaje privados
+    client.on('mensajePrivado', data => {
+        let persona = usuarios.getPersona(client.id);
+        client.broadcast.to(data.para).emit('mensajePrivado', crearMensaje(persona.nombre, data.mensaje));
+    });
 });
