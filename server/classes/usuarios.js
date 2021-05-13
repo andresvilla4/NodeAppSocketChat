@@ -21,12 +21,11 @@ class Usuarios {
         let personasEnSala = this.personas.filter(persona => persona.sala === sala);
         return personasEnSala;
     }
-}
-
-borrarPersona(id) {
-    let personaBorrada = this.getPersona(id);
-    this.personas = this.personas.filter(persona => persona.id != id);
-    return personaBorrada;
+    borrarPersona(id) {
+        let personaBorrada = this.getPersona(id);
+        this.personas = this.personas.filter(persona => persona.id != id);
+        return personaBorrada;
+    }
 }
 
 module.exports = {
